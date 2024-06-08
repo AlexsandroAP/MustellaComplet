@@ -46,6 +46,10 @@
                             {{ __('Configurações') }}
                         </x-dropdown-link>
 
+                        <x-dropdown-link :href="route('mustella')">
+                            {{ __('Tela Inicial') }}
+                        </x-dropdown-link>
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -95,6 +99,13 @@
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Configurações') }}
                 </x-responsive-nav-link>
+            </div>
+
+            <div class="mt-1 mb-1 space-y-1">
+                <x-responsive-nav-link :href="route('mustella')">
+                    {{ __('Tela Inicial') }}
+                </x-responsive-nav-link>
+            </div>
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
