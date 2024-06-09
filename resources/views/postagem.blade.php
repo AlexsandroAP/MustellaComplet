@@ -10,7 +10,7 @@
                     @csrf
                     <div class="flex flex-col md:flex-row items-start md:space-x-4">
                         <!-- File Input -->
-                        <div class="flex items-center justify-center w-full h-22rem md:w-1/3 rounded-extra-lg bg-purplle md:mt-5">
+                        <div class="outline-none flex items-center justify-center w-full h-22rem md:w-1/3 rounded-extra-lg bg-purplle md:mt-5">
                             
                             <label for="image" class="flex flex-col items-center justify-center w-full h-10rem rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                                 <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -19,7 +19,7 @@
                                 <input type="file" id="image" name="image" required class="hidden">
                             </label>
 
-                            <img id="output"/>
+                            <img id="output" class="flex items-center justify-center"/>
 
                         </div>
 

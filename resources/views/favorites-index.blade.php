@@ -207,7 +207,7 @@
 
                         {{ $favorites->links() }}
                         @else
-                            <p class="text-white text-center">Você não possui posts favoritados.</p>
+                            <p class="flex items-center justify-center text-white text-center mt-20rem">Você não possui posts favoritados.</p>
                         @endif
 
             </div>
