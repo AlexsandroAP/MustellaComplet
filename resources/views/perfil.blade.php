@@ -44,7 +44,7 @@
                                     <!-- circuloPerfil -->
                                 </div>
                                 
-                                <div class="ml-3rem md:ml-4 text-bold sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 mt-2 text-center">
+                                <div class="ml-4 md:ml-4 text-bold sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 mt-2 text-center">
                                     <div class="sm:text-left md:text-left lg:text-left xl:text-left text-center font-bold text-2xl">{{ Auth::user()->name }}</div>
 
                                     <div class="text-semibold text-sm text-gray sm:text-left md:text-left lg:text-left xl:text-left text-center">
@@ -55,9 +55,15 @@
                                             {{ $postCount }} Postagens 
                                     </div>
 
-                                    <a class="text-semibold text-sm text-gray sm:text-left md:text-left lg:text-left xl:text-left text-center" href="{{ route('profile.edit') }}">Editar perfil</a>
+                                    <div clas="md:flex ">
+                                        <div>
+                                            <a href="{{ route('profile.edit') }}" class="md:flex sm:flex md:flex lg:flex xl:flex md:text-left sm:text-left md:text-left lg:text-left xl:text-left text-center text-semibold text-gray text-sm">Editar perfil</a>
+                                        </div>
                                     
-                                    <a href="{{ route('favorites.index') }}" class="btn btn-primary">Ver Posts Favoritados</a>
+                                        <div>
+                                            <a href="{{ route('favorites.index') }}" class="md:text-left sm:text-left md:text-left lg:text-left xl:text-left text-center text-semibold text-gray text-sm">Ver Posts Favoritados</a>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
@@ -66,63 +72,52 @@
                 </div>
             </div>
 
-            <div class="md:px-20rem px-5 md:mt-3rem mt-7rem grid md:grid-cols-3 gap-4">
+            <div class="md:px-7rem px-5 md:mt-3rem mt-10rem grid md:grid-cols-3 gap-4">
                         
                         @foreach($posts as $post)
-                            <div class="max-w-sm rounded overflow-hidden shadow-lg sm:m-4">
+                            <div class="shadow-none max-w-sm rounded overflow-hidden shadow-lg sm:m-4">
 
                                 <div class="mb-3 md:mt-0 mt-4">
                                     <div class="flex items-center">
                                         <!-- circuloPerfil -->
-                                        <div class="w-10 h-10 bg-orange rounded-full"></div>
-                                        <div>
-                                            <div class="ml-2 text-white">
+                                        <div class="w-10 h-10 bg-orange rounded-full">
+                                        </div>
+                                        <div class="flex">
+                                            <div class="ml-2 text-white flex items-center">
                                                 {{$post->user->name}}
                                             </div>
 
 
-                                        <div class="text-purplle flex-grow">
+                                            <div class="text-purplle flex-grow relative">
                                            
-                                            <x-dropdown align="left" width="48">
+                                            <x-dropdown align="left" width="48" class="">
                                                 <x-slot name="trigger">
                                                     <button>
                                                         <img class="w-5 h-5 m-4 min-w-5 min-h-5" src="{{ asset('imagens/points.png') }}" alt="seta">
                                                     </button>
                                                 </x-slot>
                             
-                                                <x-slot name="content">
-                            
+                                                <div class="absolute z-50">
+                                                    <x-slot name="content" class="rounded-xl absolute z-50">
+
+                                                    <x-dropdown-link>
+                                                        <a href="{{ route('posts.edit', $post->id) }}" class="ml-4 text-sm btn btn-primary font-semibold">Editar</a>
+
+                                                    </x-dropdown-link>
+
                                                     <x-dropdown-link >
                                                         <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                                                            @csrf
+                                                                                                            @csrf
                                                             @method('DELETE')
-                                                            <button class="text-orange font-semibold"type="submit" onclick="return confirm('Tem certeza que deseja deletar este post?')">Excluir</button>
+                                                            <button class="text-orange font-semibold text-sm mb-2" type="submit" onclick="return confirm('Tem certeza que deseja deletar este post?')">Excluir</button>
                                                         </form>
                                                     </x-dropdown-link>
 
-                                                    <x-dropdown-link class="">
-                                                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Editar</a>
-
-                                                    </x-dropdown-link>
-                            
-                                                    
-                                                </x-slot>
+                                                    </x-slot>
+                                                </div>
                                                
                                             </x-dropdown>
-
-
-                                        </div>
-
-
-
-
-
-
-
-                                            
-
-
-
+                                            </div>
 
                                         </div>
                                        

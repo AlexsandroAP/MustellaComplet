@@ -30,6 +30,7 @@ export default {
                 '20rem': '18rem',
                 '22rem': '22rem',
                 '9rem': ' 9rem',
+                '30rem': '30rem',
             },
 
 
